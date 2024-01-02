@@ -50,7 +50,7 @@ def main():
         json.dump(data, f, indent=4)
 
     print('---Start user script.---')
-    result = sp.run("/usr/local/emhttp/plugins/user.scripts/backgroundScript.sh /tmp/user.scripts/tmpScripts/Python_Sleep_Script/script",
+    result = sp.run("/usr/local/emhttp/plugins/user.scripts/backgroundScript.sh /boot/config/plugins/user.scripts/scripts/Python_Sleep_Script/script",
                     shell=True, capture_output=True, text=True)
     print(result.stdout)
     print()
