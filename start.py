@@ -36,6 +36,7 @@ def main():
     copy("sleep.py", "/boot/scripts")
     copy("python_sleep.conf", "/boot/config")
     copy("Python_Sleep_Script/script", "/tmp/user.scripts/tmpScripts/Python_Sleep_Script")
+    Path("/tmp/user.scripts/tmpScripts/Python_Sleep_Script/script").chmod(mode=33261)
 
     print('---Adding schedule for user script execution.---')
     with open(r"/boot/config/plugins/user.scripts/schedule.json", "r") as f:
