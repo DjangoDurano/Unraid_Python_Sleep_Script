@@ -46,7 +46,7 @@ def main():
         "custom": "*/5 * * * *"
     }
 
-    with open("r/boot/config/plugins/user.scripts/schedule.json", "w") as f:
+    with open(r"/boot/config/plugins/user.scripts/schedule.json", "w") as f:
         json.dump(data, f, indent=4)
 
     print('---Start user script.---')
