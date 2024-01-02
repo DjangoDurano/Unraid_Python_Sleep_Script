@@ -35,7 +35,7 @@ def main():
     copytree('Python_Sleep_Script', r"/boot/config/plugins/user.scripts/scripts/Python_Sleep_Script")
     copy("sleep.py", "/boot/scripts")
     copy("python_sleep.conf", "/boot/config")
-    copy("/Python_Sleep_Script/script", "/tmp/user.scripts/tmpScripts/Python_Sleep_Script")
+    copy("Python_Sleep_Script/script", "/tmp/user.scripts/tmpScripts/Python_Sleep_Script")
 
     print('---Adding schedule for user script execution.---')
     with open(r"/boot/config/plugins/user.scripts/schedule.json", "r") as f:
