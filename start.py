@@ -29,7 +29,7 @@ def main():
 
     print('---Check if /boot/scripts exists.---')
     Path("/boot/scripts").mkdir(exist_ok=True)
-    Path("/tmp/user.scripts/tmpScripts/Python_Sleep_Script").mkdir(exist_ok=True)
+    Path("/tmp/user.scripts/tmpScripts/Python_Sleep_Script").mkdir(exist_ok=True, parents=True, mode=16877)
 
     print('---Copy files to destination folder.---')
     copytree('Python_Sleep_Script', r"/boot/config/plugins/user.scripts/scripts/Python_Sleep_Script")
