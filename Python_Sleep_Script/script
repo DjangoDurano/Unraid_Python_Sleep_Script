@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# path to sleep.py
+python_file="/boot/scripts/sleep.py"
+# time for check if script runs in seconds
+sleep_time=600
+
+while true; do
+    # check if python script run
+    if pgrep -f "$python_file" > /dev/null; then
+        sleep $sleep_time
+    else
+        echo "$python_file started."
+        
+        nohup python3 /boot/scripts/sleep.py >/dev/null 2>&1 &
+        sleep $sleep_time
+    fi
+done
