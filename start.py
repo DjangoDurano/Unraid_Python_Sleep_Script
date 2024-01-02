@@ -1,7 +1,7 @@
 import json
 import subprocess as sp
 from pathlib import Path
-from shutil import copy
+from shutil import copy, copytree
 
 dependencies: list = [
     "python3 /usr/lib64/python3.9/site-packages/pip install psutil",
@@ -31,7 +31,7 @@ def main():
     Path("/boot/scripts").mkdir(exist_ok=True)
 
     print('---Copy files to destination folder.---')
-    copy('Python_Sleep_Script', r"/boot/config/plugins/user.scripts/scripts")
+    copytree('Python_Sleep_Script', r"/boot/config/plugins/user.scripts/scripts")
     copy("sleep.py", "/boot/scripts")
     copy("python_sleep.conf", "/boot/config")
 
