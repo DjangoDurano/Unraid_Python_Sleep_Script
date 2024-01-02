@@ -23,7 +23,7 @@ def main():
     copy(r"/boot/config/plugins/user.scripts/schedule.json", r"/boot/config/plugins/user.scripts/schedule_old.json")
 
     print('---Add dependencies to go file.---')
-    with open('go', "a") as f:
+    with open('/boot/config/go', "a") as f:
         f.write("\n")
         f.write("\n".join(dependencies))
 
