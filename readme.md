@@ -106,7 +106,7 @@ A python script, that has nearly the same functions as the original sleep plugin
   sdk = WDC_1....
 - best practice is to copy values from array/cache/unassigned disks to "used_disks"
 - set execute to True at "MAIN_SETTINGS"
-- go to user script plugin and Run in Background Python_Sleep_Script
+- wait for startup or go to user scripts plugin and start manually (max 10 minutes)
 
 `Note: if option add_cache_drives or wait_array_inactivity is set, all cache/array disk will be added automatic. 
 Disk name is not important it's for identification only. Mount point is absolute necessary, it  must be correct.`
