@@ -31,7 +31,7 @@ def main():
     Path("/boot/scripts").mkdir(exist_ok=True)
 
     print('---Copy files to destination folder.---')
-    copytree('Python_Sleep_Script', r"/boot/config/plugins/user.scripts/scripts")
+    copytree('Python_Sleep_Script', r"/boot/config/plugins/user.scripts/scripts/Python_Sleep_Script")
     copy("sleep.py", "/boot/scripts")
     copy("python_sleep.conf", "/boot/config")
 
