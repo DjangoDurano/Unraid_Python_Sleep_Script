@@ -35,7 +35,7 @@ A python script, that has nearly the same functions as the original sleep plugin
 ### Installation:
 - start a terminal in unraid and copy following command to it
 
-`git clone github_url && cd repo name && python3 start.py`
+`git clone https://github.com/DjangoDurano/Unraid_Python_Sleep_Script && cd Unraid_Python_Sleep_Script && python3 start.py`
 
 ### Settings in .conf file:
 | Command:  |  Explanation: |Possible Value/Values:   |
