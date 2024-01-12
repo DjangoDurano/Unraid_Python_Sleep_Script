@@ -17,10 +17,24 @@ def main():
         print(result.stdout)
 
     print('---Backup go file and schedule.json.---')
-    print('/boot/config/go -> /boot/config/go_old')
-    copy("/boot/config/go", "/boot/config/go_old")
-    print(r"/boot/config/plugins/user.scripts/schedule.json -> /boot/config/plugins/user.scripts/schedule_old.json")
-    copy(r"/boot/config/plugins/user.scripts/schedule.json", r"/boot/config/plugins/user.scripts/schedule_old.json")
+    if Path('/boot/config/go_old').exists():
+        go_name = input('Backup file "go_old" exists. Please enter alternative '
+                        'name e.g. go_old2 or leave blank for no backup: ') or None
+        if go_name:
+            print(f'/boot/config/go -> /boot/config/{go_name}')
+            copy("/boot/config/go", f"/boot/config/{go_name}")
+    else:
+        print('/boot/config/go -> /boot/config/go_old')
+        copy("/boot/config/go", "/boot/config/go_old")
+    if Path('/boot/config/plugins/user.scripts/schedule_old.json').exists():
+        schedule_name = input('Backup file "schedule_old" exists. Please enter alternative '
+                              'name e.g. schedule_old2 or leave blank for no backup: ') or None
+        if schedule_name:
+            print(fr"/boot/config/plugins/user.scripts/schedule.json -> /boot/config/plugins/user.scripts/{schedule_name}.json")
+            copy(r"/boot/config/plugins/user.scripts/schedule.json", fr"/boot/config/plugins/user.scripts/{schedule_name}.json")
+    else:
+        print(r"/boot/config/plugins/user.scripts/schedule.json -> /boot/config/plugins/user.scripts/schedule_old.json")
+        copy(r"/boot/config/plugins/user.scripts/schedule.json", r"/boot/config/plugins/user.scripts/schedule_old.json")
 
     print('---Add dependencies to go file.---')
     with open('/boot/config/go', "a") as f:
