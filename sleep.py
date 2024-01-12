@@ -6,7 +6,7 @@ import subprocess as sp
 from subprocess import PIPE
 from ping3 import ping
 from time import sleep
-from logging import Logger, ERROR
+from logging import Logger
 from logging.handlers import QueueHandler
 from dataclasses import dataclass, field
 from datetime import datetime
@@ -22,7 +22,7 @@ import json
 
 
 author = "Django.Durano"
-version = "1.0"
+version = "1.1"
 
 
 def follow(_file):
@@ -581,6 +581,9 @@ class SleepScript:
                                         f'User activity: {user.name} from terminal ({user.terminal}) host ({user.host})')
 
         if self.config.get('MAIN_SETTINGS').as_bool('wait_user_login_inactivity_local'):
+            for key, ip in self.login_status.items():
+                if not ping(ip):
+                    self.login_status.pop(key)
             if self.login_status:
                 self.ongoing = True
                 self.logger.log(self.log_level.user, f'Local user activity from: {list(self.login_status.keys())}.')
