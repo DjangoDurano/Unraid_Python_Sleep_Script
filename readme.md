@@ -27,7 +27,7 @@ A python script, that has nearly the same functions as the original sleep plugin
 
 ### Requirements:
 - Nerdtools
-- from nerdtools install: python3-3.9.16-x86_64-1.txz, python-pip-22.2.2-x86_64-1.txz or newer
+- python3, can be installing at setup (Note: python3 from nerdtools will not work, it's not fully compatible with unraid)
 - User Scripts plugin
 - Dynamix File Manager plugin is highly recommend
 
@@ -35,7 +35,7 @@ A python script, that has nearly the same functions as the original sleep plugin
 ### Installation:
 - start a terminal in unraid and copy following command to it
 
-`git clone https://github.com/DjangoDurano/Unraid_Python_Sleep_Script && cd Unraid_Python_Sleep_Script && python3 start.py`
+`git clone https://github.com/DjangoDurano/Unraid_Python_Sleep_Script && cd Unraid_Python_Sleep_Script && bash install.sh`
 
 ### Settings in .conf file:
 | Command:  |  Explanation: |Possible Value/Values:   |

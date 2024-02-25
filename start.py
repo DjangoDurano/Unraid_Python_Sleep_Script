@@ -3,16 +3,16 @@ import subprocess as sp
 from pathlib import Path
 from shutil import copy, copytree
 
-dependencies: list = [
-    "python3 /usr/lib64/python3.9/site-packages/pip install psutil",
-    "python3 /usr/lib64/python3.9/site-packages/pip install ping3",
-    "python3 /usr/lib64/python3.9/site-packages/pip install configobj"
-]
+dependencies: dict = {
+    "psutil": "pip3 install psutil",
+    "ping3": "pip3 install ping3",
+    "configobj": "pip3 install configobj"
+}
 
 
 def main():
     print('---Install dependencies.---')
-    for dependency in dependencies:
+    for _, dependency in dependencies.items():
         result = sp.run(dependency, shell=True, capture_output=True, text=True)
         print(result.stdout)
 
@@ -37,9 +37,26 @@ def main():
         copy(r"/boot/config/plugins/user.scripts/schedule.json", r"/boot/config/plugins/user.scripts/schedule_old.json")
 
     print('---Add dependencies to go file.---')
-    with open('/boot/config/go', "a") as f:
-        f.write("\n")
-        f.write("\n".join(dependencies))
+    last_line_check = False
+    with open(r"A:\go", "r") as f:
+        last_line = f.readlines()[-1]
+
+    with open(r"A:\go", "r+") as f:
+        content = f.read()
+
+        for module, command in dependencies.items():
+            if command in content:
+                print(f'{module} always exists.')
+            else:
+                if not last_line_check:
+                    if "\n" not in last_line:
+                        f.write("\n\n")
+                        last_line_check = True
+                    else:
+                        f.write("\n")
+                        last_line_check = True
+                print(f'{module} not found. Added to go file.')
+                f.write(f'{command}\n')
 
     print('---Check if /boot/scripts exists.---')
     Path("/boot/scripts").mkdir(exist_ok=True)
