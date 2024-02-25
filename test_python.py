@@ -1,4 +1,4 @@
 try:
     import ctypes
 except ImportError:
-    print('Not worked!')
+    print('Not working!')
