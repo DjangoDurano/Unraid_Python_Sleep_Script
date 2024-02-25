@@ -13,6 +13,7 @@ Choose one to install: \n1. Python 3.9.18 (own python3 build by me)\n2. Python 3
   else
     upgradepkg --install-new "./Python_Package/python3-3.12.1-x86_64-1-kubed20231210.txz"
     cp "./Python_Package/python3-3.12.1-x86_64-1-kubed20231210.txz" "/boot/extra"
+    cp "./Python_Package/openssl-3.1.1-x86_64-1.txz" "/boot/extra"
   fi
   echo "--- Testing python3 ---"
   python_test=$(python3 test_python.py 2>&1)
