@@ -4,7 +4,7 @@ echo "--- Checking python3 version ---"
 python=$(python3 --version 2>&1)
 
 if [[ $python == *"No such file or directory"* ]] || [[ $python == *"python3: command not found"* ]]; then
-  read -rep "No python version found. Python is needed for working. Nerdtools python will not work.\n
+  read -rep $"No python version found. Python is needed for working. Nerdtools python will not work.\n
   Choose one to install: \n1. Python 3.9.18 (own build python by me)\n2. Python 3.12.1 (by kubed_zero)" version
 
   if [[ $version == 1 ]]; then
